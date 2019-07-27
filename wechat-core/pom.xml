@@ -1,0 +1,207 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.zhidian</groupId>
+  <artifactId>wechat-core</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0.0</version>
+  <name>wechat-core</name>
+
+  <url>http://maven.apache.org</url>
+
+  <!-- 部署到nexus私服上的配置 -->
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <name>nexus-snapshots</name>
+      <url>http://znexus.zdev.com/nexus/content/repositories/snapshots/</url>
+      <uniqueVersion>true</uniqueVersion>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-releases</id>
+      <name>nexus-releases</name>
+      <url>http://znexus.zdev.com/nexus/content/repositories/releases/</url>
+    </repository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- 日志工具 -->
+    <log4j>1.2.17</log4j>
+    <org.slf4j>1.5.8</org.slf4j>
+
+    <!-- until 相关jar -->
+    <commons-fileupload>1.3</commons-fileupload>
+    <commons-lang3>3.3.2</commons-lang3>
+    <httpclient>4.5.2</httpclient>
+    <httpcomponents>4.3.3</httpcomponents>
+    <commons.httpclient>3.0</commons.httpclient>
+    <commons-io>2.4</commons-io>
+    <commons-pool>1.6</commons-pool>
+    <commons-codec>1.9</commons-codec>
+    <commons.beanutils>1.7.0</commons.beanutils>
+    <commons.collections>3.2.1</commons.collections>
+    <dom4j>1.6.1</dom4j>
+    <xstream>1.3.1</xstream>
+
+    <!-- json 相关jar包 -->
+    <fastjson.version>1.1.34</fastjson.version>
+    <ezmorph>1.0.6</ezmorph>
+
+    <!-- servlet -->
+    <javax.servlet.jstl>1.2</javax.servlet.jstl>
+    <javax.servlet.jsp-api>2.0</javax.servlet.jsp-api>
+
+    <emoji-java>3.1.3</emoji-java>
+
+  </properties>
+
+  <dependencies>
+
+    <!-- 工具类 -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>${commons-fileupload}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>${httpclient}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons.httpclient</groupId>
+      <artifactId>commons.httpclient</artifactId>
+      <version>${commons.httpclient}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpmime</artifactId>
+      <version>${httpcomponents}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-pool</groupId>
+      <artifactId>commons-pool</artifactId>
+      <version>${commons-pool}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>${commons-codec}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons.beanutils</groupId>
+      <artifactId>commons.beanutils</artifactId>
+      <version>${commons.beanutils}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons.collections</groupId>
+      <artifactId>commons.collections</artifactId>
+      <version>${commons.collections}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>${dom4j}</version>
+    </dependency>
+    <dependency>
+      <groupId>xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>${xstream}</version>
+    </dependency>
+
+    <!-- json 相关jar包 -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>${fastjson.version}</version>
+    </dependency>
+
+    <!-- 日志相关jar包 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${org.slf4j}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${org.slf4j}</version>
+    </dependency>
+
+    <!--servlet-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>${javax.servlet.jsp-api}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.vdurmont</groupId>
+      <artifactId>emoji-java</artifactId>
+      <version>${emoji-java}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>wechat-core</finalName>
+
+    <plugins>
+
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.2</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+
+      <!-- 打jar包 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <excludes>
+            <exclude>**/*.properties</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
+      <!-- 打源码 -->
+      <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-source-plugin</artifactId>-->
+        <!--<version>2.4</version>-->
+        <!--<configuration>-->
+          <!--<attach>true</attach>-->
+        <!--</configuration>-->
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<phase>compile</phase>-->
+            <!--<goals>-->
+              <!--<goal>jar</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
+        <!--</executions>-->
+      <!--</plugin>-->
+
+    </plugins>
+  </build>
+</project>
