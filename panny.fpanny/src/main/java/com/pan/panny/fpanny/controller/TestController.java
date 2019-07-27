@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.pan.panny.fpanny.dao.TestDao;
 
 @Controller
-public class TestController {
+public class TestController { 
 	
 	@Autowired
 	private TestDao testDao;
